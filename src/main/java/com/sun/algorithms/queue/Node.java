@@ -1,4 +1,4 @@
-package com.sun.queue;
+package com.sun.algorithms.queue;
 
 public class Node {
 
@@ -6,7 +6,6 @@ public class Node {
 	private int data;
 
 	public Node() {
-
 	}
 
 	public Node(int data) {

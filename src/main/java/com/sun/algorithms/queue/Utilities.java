@@ -1,4 +1,4 @@
-package com.sun.queue;
+package com.sun.algorithms.queue;
 
 public class Utilities {
 

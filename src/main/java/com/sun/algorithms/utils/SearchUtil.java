@@ -1,4 +1,4 @@
-package com.algorithms.utils;
+package com.sun.algorithms.utils;
 
 public class SearchUtil {
 

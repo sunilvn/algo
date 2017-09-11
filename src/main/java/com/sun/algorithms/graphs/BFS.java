@@ -1,8 +1,8 @@
-package com.sun.graphs;
+package com.sun.algorithms.graphs;
 
 import java.util.LinkedList;
 
-import com.sun.queue.Queue;
+import com.sun.algorithms.queue.Queue;
 
 public class BFS {
 

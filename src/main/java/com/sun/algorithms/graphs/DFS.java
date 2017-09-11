@@ -1,4 +1,4 @@
-package com.sun.graphs;
+package com.sun.algorithms.graphs;
 
 import java.util.LinkedList;
 
@@ -13,13 +13,13 @@ public class DFS {
 
 	private void dfsTrace(Graph g, int i) {
 
-			System.out.print(i+"\t");
-			a[i]=true;
-		
-		LinkedList<Integer> lLst=g.getList()[i];
-		for ( int aNode: lLst) {
+		System.out.print(i + "\t");
+		a[i] = true;
+
+		LinkedList<Integer> lLst = g.getList()[i];
+		for (int aNode : lLst) {
 			if (!a[aNode]) {
-			dfsTrace(g, aNode);
+				dfsTrace(g, aNode);
 			}
 		}
 	}

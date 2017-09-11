@@ -1,4 +1,4 @@
-package com.sun.queue;
+package com.sun.algorithms.queue;
 
 public class Queue {
 
@@ -46,6 +46,7 @@ public class Queue {
 			return true;
 		return false;
 	}
+
 	@Override
 	public String toString() {
 		// TODO Auto-generated method stub

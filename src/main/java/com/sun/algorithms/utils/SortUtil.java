@@ -1,8 +1,8 @@
-package com.algorithms.utils;
+package com.sun.algorithms.utils;
 
 import java.util.Arrays;
 
-public class SortUtil{
+public class SortUtil {
 
 	public static void BubbleSort(int a[]) {
 
@@ -40,46 +40,46 @@ public class SortUtil{
 
 	}
 
-	public static void MergeSort(int a[]){
-		int temp[]=new int[a.length];
-		mergeSort(a,0,a.length-1,temp);
+	public static void MergeSort(int a[]) {
+		int temp[] = new int[a.length];
+		mergeSort(a, 0, a.length - 1, temp);
 	}
-	
+
 	private static void mergeSort(int[] a, int low, int high, int[] temp) {
-	
-		if(low>=high)return;
-		
-		else{
-			
-			int mid=(low+high)/2;
-			
-			mergeSort(a,low,mid,temp);
-			mergeSort(a,mid+1,high,temp);
-			merge(a,low,mid,high,temp);
-			
-			
+
+		if (low >= high)
+			return;
+
+		else {
+
+			int mid = (low + high) / 2;
+
+			mergeSort(a, low, mid, temp);
+			mergeSort(a, mid + 1, high, temp);
+			merge(a, low, mid, high, temp);
+
 		}
 	}
 
 	private static void merge(int[] a, int low, int mid, int high, int[] temp) {
-		int i=low,k=low;
-		int j=mid+1;
-		
-		while(i<=mid && j<=high){
-			
-			if(a[i]<=a[j])
-				temp[k++]=a[i++];
+		int i = low, k = low;
+		int j = mid + 1;
+
+		while (i <= mid && j <= high) {
+
+			if (a[i] <= a[j])
+				temp[k++] = a[i++];
 			else
-				temp[k++]=a[j++];
+				temp[k++] = a[j++];
 		}
-		 while(i<=mid){
-			 temp[k++]=a[i++];
-		 }
-		 while(j<=high){
+		while (i <= mid) {
+			temp[k++] = a[i++];
+		}
+		while (j <= high) {
 			temp[k++] = a[j++];
 		}
-		 for (int j2 = low; j2 <= high; j2++) {
-			a[j2]=temp[j2];
+		for (int j2 = low; j2 <= high; j2++) {
+			a[j2] = temp[j2];
 		}
 
 	}
@@ -103,13 +103,14 @@ public class SortUtil{
 
 			while (a[left] <= pivot) {
 				left++;
-				if(left>high)
+				if (left > high)
 					break;
-				
+
 			}
 			while (a[right] > pivot) {
 				right--;
-				if(right<high)break;
+				if (right < high)
+					break;
 			}
 			if (left < right)
 				swap(a, left, right);

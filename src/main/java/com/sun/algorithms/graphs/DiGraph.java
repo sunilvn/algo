@@ -1,4 +1,4 @@
-package com.sun.graphs;
+package com.sun.algorithms.graphs;
 
 import java.util.LinkedList;
 

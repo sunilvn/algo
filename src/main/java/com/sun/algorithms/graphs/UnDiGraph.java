@@ -1,8 +1,8 @@
-package com.sun.graphs;
+package com.sun.algorithms.graphs;
 
 import java.util.LinkedList;
 
-public class UnDiGraph implements Graph{
+public class UnDiGraph implements Graph {
 
 	private LinkedList<Integer> list[];
 	private int size = 0;
@@ -13,7 +13,8 @@ public class UnDiGraph implements Graph{
 			list[i] = new LinkedList<Integer>();
 		}
 	}
-    public void addEdge(int from, int to) {
+
+	public void addEdge(int from, int to) {
 		/*
 		 * if (list. == null) { addVertex(from); } if (list.get(to) == null) {
 		 * addVertex(to); }
