@@ -47,7 +47,7 @@ public class GTest {
 		g3.addEdge(1, 2);
 		g3.addEdge(2, 4);
 		g3.addEdge(2, 5);
-		g3.addEdge(4, 5);
+		//g3.addEdge(4, 5);
 		g3.addEdge(1, 3);
 		g3.addEdge(3, 6);
 		g3.addEdge(6, 7);
@@ -67,5 +67,11 @@ public class GTest {
 */
 		new DFS().dfsPath(g3, 5, 8);
 		new BFS().level(g3, 5, 8);
+		System.out.println("\n"+new DFS().isTwoColorable(g3));
+		GraphUtil.preOrder(g3);
+		System.out.println();
+		GraphUtil.postOrder(g3);
+		System.out.println();
+		GraphUtil.revPostOrder(g3);
 	}
 }
