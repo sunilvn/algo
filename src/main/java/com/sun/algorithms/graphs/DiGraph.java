@@ -5,8 +5,9 @@ import java.util.LinkedList;
 public class DiGraph implements Graph {
 
 	private LinkedList<Integer> list[];
-	private int size = 0;
+	private int edges = 0;
 
+	@SuppressWarnings("unchecked")
 	public DiGraph() {
 		list = new LinkedList[100];
 		for (int i = 0; i < list.length; i++) {
@@ -20,11 +21,12 @@ public class DiGraph implements Graph {
 		 * addVertex(to); }
 		 */
 		list[from].add(to);
+		edges++;
 
 	}
 
-	public int getSize() {
-		return size;
+	public int getNoEdges() {
+		return edges;
 	}
 
 	public LinkedList<Integer>[] getList() {
@@ -33,10 +35,6 @@ public class DiGraph implements Graph {
 
 	public void setList(LinkedList<Integer>[] list) {
 		this.list = list;
-	}
-
-	public void setSize(int size) {
-		this.size = size;
 	}
 
 }

@@ -5,8 +5,9 @@ import java.util.LinkedList;
 public class UnDiGraph implements Graph {
 
 	private LinkedList<Integer> list[];
-	private int size = 0;
+	private int edges = 0;
 
+	@SuppressWarnings("unchecked")
 	public UnDiGraph() {
 		list = new LinkedList[100];
 		for (int i = 0; i < list.length; i++) {
@@ -21,11 +22,12 @@ public class UnDiGraph implements Graph {
 		 */
 		list[from].add(to);
 		list[to].add(from);
+		edges++;
 
 	}
 
-	public int getSize() {
-		return size;
+	public int getNoEdges() {
+		return edges;
 	}
 
 	public LinkedList<Integer>[] getList() {
@@ -36,8 +38,5 @@ public class UnDiGraph implements Graph {
 		this.list = list;
 	}
 
-	public void setSize(int size) {
-		this.size = size;
-	}
 
 }
