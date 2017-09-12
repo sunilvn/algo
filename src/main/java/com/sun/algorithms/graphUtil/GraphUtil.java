@@ -13,7 +13,7 @@ public class GraphUtil {
 	}
 
 	private static boolean isCycleForUndirected(Graph g, boolean[] visited, int node, int prev) {
-		// System.out.print(node + "\t");
+		
 		visited[node] = true;
 
 		LinkedList<Integer> lLst = g.getList()[node];

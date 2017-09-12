@@ -6,38 +6,62 @@ import com.sun.algorithms.queue.Queue;
 
 public class BFS {
 
-	boolean flag[];
+	boolean visited[];
+	int level[];
 
-	public BFS(Graph g) {
-		flag = new boolean[101];
-		bfsTrace(g, 1);
+	public void bfsTrace(Graph g) {
+		visited = new boolean[g.getList().length + 1];
+		bfsTrace(g, 1);// assuming 1 as starting vertex
 	}
 
-	private void bfsTrace(Graph g,
-			int i) {/*
-					 * 
-					 * if (!flag[i]) { System.out.print(i + "\t"); flag[i] =
-					 * true; } LinkedList<Integer> lLst = g.getList().get(i);
-					 * for (int node : lLst) { if (!flag[node]) {
-					 * System.out.print(node + "\t"); flag[node] = true; } } for
-					 * (int node : lLst) {
-					 * 
-					 * bfsTrace(g, node); }
-					 */
-		// System.out.print(i + "\t");
+	/**
+	 * Find level between two vertices
+	 *
+	 * @param g
+	 *            { undirected graph}
+	 */
+	public void level(Graph g, int a, int b) {
+		visited = new boolean[g.getList().length + 1];
+		level = new int[g.getList().length];
+		level[1]=1;
+		bfsLevel(g, 1);
+		if (level[a] == 0 || level[b] == 0)
+			System.out.println("vertex a or b not exists in same Graph Component");
+		else {
+			System.out.println("\nlevel : "+Math.abs(level[a] - level[b]));
+		}
+	}
 
+	private void bfsTrace(Graph g, int i) {
 		Queue queue = new Queue();
 		queue.enqueue(i);
+		visited[i]=true;
 		while (!queue.isEmpty()) {
 			int node = queue.dequeue();
-			if (!flag[node]) {
-				System.out.print(node + "\t");
-				flag[node] = true;
-			}
+			System.out.print(node + "\t");
 			LinkedList<Integer> nodeLst = g.getList()[node];
-			for (Integer childNode : nodeLst) {
-				if (!flag[childNode]) {
-					queue.enqueue(childNode);
+			for (Integer aNode : nodeLst) {
+				if (!visited[aNode]) {
+					visited[aNode] = true;
+					queue.enqueue(aNode);
+				}
+			}
+		}
+
+	}
+
+	private void bfsLevel(Graph g, int i) {
+		Queue queue = new Queue();
+		queue.enqueue(i);
+		visited[i]=true;
+		while (!queue.isEmpty()) {
+			int node = queue.dequeue();
+			LinkedList<Integer> nodeLst = g.getList()[node];
+			for (Integer aNode : nodeLst) {
+				if (!visited[aNode]) {
+					level[aNode] = level[node] + 1;
+					visited[aNode] = true;
+					queue.enqueue(aNode);
 				}
 			}
 		}

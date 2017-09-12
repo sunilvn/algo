@@ -45,10 +45,15 @@ public class GTest {
 		// g2.addEdge(7, 3);
 		g2.addEdge(7, 8);
 		g3.addEdge(1, 2);
-		// g3.addEdge(2, 3);
-		// g3.addEdge(3, 3);
-		// g3.addEdge(4, 1);
-		System.out.println("Printing dfs for Directed graph G2....");
+		g3.addEdge(2, 4);
+		g3.addEdge(2, 5);
+		g3.addEdge(4, 5);
+		g3.addEdge(1, 3);
+		g3.addEdge(3, 6);
+		g3.addEdge(6, 7);
+		g3.addEdge(6, 8);
+		
+		/*System.out.println("Printing dfs for Directed graph G2....");
 		new DFS(g2);
 		System.out.println("\nPrinting bfs for Directed graph G2....");
 		new BFS(g2);
@@ -59,6 +64,8 @@ public class GTest {
 		new BFS(g1);
 		System.out.println("\n\nCycle for undirected G1 " + GraphUtil.isCycleForUndirected(g1));
 		System.out.println("\n\nCycle for undirected G3 " + GraphUtil.isCycleForUndirected(g3));
-
+*/
+		new DFS().dfsPath(g3, 5, 8);
+		new BFS().level(g3, 5, 8);
 	}
 }
