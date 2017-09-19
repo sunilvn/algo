@@ -1,14 +1,16 @@
 package com.sun.algorithms.queue;
 
-public class Queue {
+import java.util.Iterator;
 
-	private Node first;
-	private Node last;
+public class Queue<T> implements Iterable<T>{
+
+	private Node<?> first;
+	private Node<?> last;
 	private int size;
 
-	public void enqueue(int data) {
+	public void enqueue(T data) {
 
-		Node node = new Node(data);
+		Node<T> node = new Node<T>(data);
 		if (first == null && last == null) {
 			first = node;
 			last = node;
@@ -20,20 +22,21 @@ public class Queue {
 		}
 	}
 
-	public int dequeue() {
+	@SuppressWarnings("unchecked")
+	public T dequeue() {
 
 		if (isEmpty()) {
 			System.out.print("Queue is empty returning with -1");
-			return -1;
+			return null;
 		} else {
-			int data;
+			T data;
 			if (first == last) {
-				data = first.getData();
+				data = (T) first.getData();
 				first = null;
 				last = null;
 				size--;
 			} else {
-				data = first.getData();
+				data = (T) first.getData();
 				first = first.getNext();
 				size--;
 			}
@@ -51,5 +54,10 @@ public class Queue {
 	public String toString() {
 		// TODO Auto-generated method stub
 		return super.toString();
+	}
+
+	public Iterator<T> iterator() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
