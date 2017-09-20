@@ -2,7 +2,7 @@ package com.sun.algorithms.queue;
 
 import java.util.Iterator;
 
-public class Queue<T> implements Iterable<T>{
+public class Queue<T> implements Iterable<T> {
 
 	private Node<?> first;
 	private Node<?> last;
@@ -56,8 +56,39 @@ public class Queue<T> implements Iterable<T>{
 		return super.toString();
 	}
 
+	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public Iterator<T> iterator() {
 		// TODO Auto-generated method stub
+		return new QueueIterator(first);
+	}
+
+}
+
+class QueueIterator<T> implements Iterator<T> {
+
+	private Node<T> current;
+
+	public QueueIterator(Node<T> first) {
+		current = first;
+	}
+
+	public boolean hasNext() {
+
+		return current != null;
+	}
+
+	@SuppressWarnings("unchecked")
+	public T next() {
+		if (hasNext()) {
+			T item = (T) current.getData();
+			current = (Node<T>) current.getNext();
+			return item;
+		}
 		return null;
+	}
+
+	public void remove() {
+		// TODO Auto-generated method stub
+
 	}
 }

@@ -9,13 +9,12 @@ import com.sun.algorithms.queue.Queue;
 
 public class PrimsMst {
 
-	MinPriorityQueue<Edge, Edge> pq;
+	MinPriorityQueue<Edge> pq;
 	boolean marked[];
 	Queue<Edge> mst = new Queue<Edge>();
 
-	@SuppressWarnings("static-access")
 	public PrimsMst(UnDiEwGraph g) {
-		pq = new MinPriorityQueue<Edge, Edge>(g.getEdges() + 1);
+		pq = new MinPriorityQueue<Edge>(g.getEdges() + 1);
 		marked = new boolean[g.adj.length + 1];
 		visit(g, 1);// assuming 1 as starting point
 		while (!pq.isEmpty()) {
@@ -32,14 +31,14 @@ public class PrimsMst {
 			if (!marked[v])
 				visit(g, v);
 		}
-		for (Iterator iterator = mst.iterator(); iterator.hasNext();) {
+		Iterator<Edge> iterator = mst.iterator();
+		while (iterator.hasNext()) {
 			Edge type = (Edge) iterator.next();
-			System.out.print(type.getWeight()+"\t");
-			
+			System.out.print(type.getWeight() + "\t");
+
 		}
 	}
 
-	@SuppressWarnings("static-access")
 	private void visit(UnDiEwGraph g, int i) {
 
 		marked[i] = true;

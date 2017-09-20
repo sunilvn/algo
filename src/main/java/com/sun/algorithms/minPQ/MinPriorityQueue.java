@@ -1,17 +1,19 @@
 package com.sun.algorithms.minPQ;
 
-public class MinPriorityQueue<E, T> implements Comparable<T> {
+import java.util.Arrays;
 
-	private E[] pq;
+public class MinPriorityQueue<T> implements Comparable<T> {
+
+	private T[] pq;
 	int index;
 
 	@SuppressWarnings("unchecked")
 	public MinPriorityQueue(int size) {
-		pq = (E[]) new Object[size];
+		pq = (T[]) new Object[size];
 		index = 0;
 	}
 
-	public void insert(E data) {
+	public void insert(T data) {
 		pq[++index] = data;
 		bubbleUp(index);
 	}
@@ -27,23 +29,23 @@ public class MinPriorityQueue<E, T> implements Comparable<T> {
 	}
 
 	private void swap(int i, int j) {
-		E tmp = pq[i];
+		T tmp = pq[i];
 		pq[i] = pq[j];
-		pq[j] = (E) tmp;
+		pq[j] = (T) tmp;
 
 	}
 
 	@SuppressWarnings("unchecked")
-	private boolean lesser(E a, E b) {
+	private boolean lesser(T a, T b) {
 
-		if (((Comparable<T>) a).compareTo((T) b) < 1)
+		if (((Comparable<T>) a).compareTo(b) < 1)
 			return true;
 		else
 			return false;
 	}
 
-	public E deleteMin() {
-		E min = pq[1];
+	public T deleteMin() {
+		T min = pq[1];
 		swap(1, index--);
 		bubbleDown(1);
 		return min;
@@ -74,13 +76,20 @@ public class MinPriorityQueue<E, T> implements Comparable<T> {
 		index = size;
 	}
 
-	public int compareTo(T o) {
-		return 0;
-	}
-
 	public boolean isEmpty() {
 		if (index == 0)
 			return true;
 		return false;
 	}
+
+	public int compareTo(T arg0) {
+
+		return 0;
+	}
+
+	@Override
+	public String toString() {
+		return "MinPriorityQueue [pq=" + Arrays.toString(pq) + ", index=" + index + "]";
+	}
+
 }

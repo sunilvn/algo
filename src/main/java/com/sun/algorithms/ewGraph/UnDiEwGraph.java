@@ -1,5 +1,6 @@
 package com.sun.algorithms.ewGraph;
 
+import java.util.Arrays;
 import java.util.LinkedList;
 
 public class UnDiEwGraph implements EwGraph {
@@ -31,6 +32,11 @@ public class UnDiEwGraph implements EwGraph {
 
 	public void setEdges(int edges) {
 		this.edges = edges;
+	}
+
+	@Override
+	public String toString() {
+		return "UnDiEwGraph [vert=" + vert + ", adj=" + Arrays.toString(adj) + "]";
 	}
 
 }
