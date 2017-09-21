@@ -3,6 +3,7 @@ package com.sun.algorithms.ewGTest;
 import com.sun.algorithms.ewGraph.Edge;
 import com.sun.algorithms.ewGraph.UnDiEwGraph;
 import com.sun.algorithms.minPQ.MinPriorityQueue;
+import com.sun.algorithms.mst.KruskalMst;
 import com.sun.algorithms.mst.PrimsMst;
 
 public class EWGtest {
@@ -13,10 +14,11 @@ public class EWGtest {
 		pq.insert(1100);
 		pq.insert(990);
 		pq.insert(800);
+		
+		pq.insert(300);
 		pq.insert(700);
 		pq.insert(600);
 		pq.insert(850);
-		pq.insert(300);
 		System.out.print(pq.deleteMin() + "\t");
 		System.out.print(pq.deleteMin() + "\t");
 		System.out.print(pq.deleteMin() + "\t");
@@ -44,6 +46,8 @@ public class EWGtest {
 		eg.addEdge(new Edge(5, 7, 28));
 		eg.addEdge(new Edge(4, 7, 37));
 		new PrimsMst(eg);
+		System.out.println();
+		new KruskalMst(eg);
 
 	}
 }

@@ -7,7 +7,6 @@ public class MinPriorityQueue<T> implements Comparable<T> {
 	private T[] pq;
 	int index;
 
-	@SuppressWarnings("unchecked")
 	public MinPriorityQueue(int size) {
 		pq = (T[]) new Object[size];
 		index = 0;
@@ -16,6 +15,16 @@ public class MinPriorityQueue<T> implements Comparable<T> {
 	public void insert(T data) {
 		pq[++index] = data;
 		bubbleUp(index);
+	}
+
+	public boolean contains(T data) {
+
+		for (int i = 0; i < pq.length; i++) {
+			if (pq[i] != null)
+				if (pq[i].equals(data))
+					return true;
+		}
+		return false;
 	}
 
 	private void bubbleUp(int index) {
@@ -90,6 +99,31 @@ public class MinPriorityQueue<T> implements Comparable<T> {
 	@Override
 	public String toString() {
 		return "MinPriorityQueue [pq=" + Arrays.toString(pq) + ", index=" + index + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + index;
+		result = prime * result + Arrays.hashCode(pq);
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		MinPriorityQueue other = (MinPriorityQueue) obj;
+		if (index != other.index)
+			return false;
+		if (!Arrays.equals(pq, other.pq))
+			return false;
+		return true;
 	}
 
 }
